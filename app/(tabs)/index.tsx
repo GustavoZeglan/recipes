@@ -9,7 +9,7 @@ export default function HomeScreen() {
   const [name, setName] = useState<string>("");
 
   const getRecipes = useCallback(async (query: string) => {
-    const res = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=dea213cec7414c7f86df23e4b995a954`, {});
+    const res = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${query}`, {});
     
     setRecipes(res.data.results);
   },[]);
