@@ -1,3 +1,4 @@
+import RecipeCard from '@/components/RecipeCard';
 import Recipe from '@/models/Recipe';
 import axios from 'axios';
 import { useCallback, useEffect, useState } from 'react';
@@ -24,7 +25,7 @@ export default function HomeScreen() {
                            placeholder={"Digite o nome da receita"}
                            placeholderTextColor={"white"} 
                            onChangeText={setName}></TextInput>
-      <FlatList data={recipes} renderItem={(item) => <Text>{item.item.title}</Text>}/>
+      <FlatList data={recipes} renderItem={(item) => <RecipeCard id={item.item.id} image={item.item.image} title={item.item.title} imageType={item.item.imageType} />}/>
    </SafeAreaView>
   );
 }
@@ -36,6 +37,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 8,
     paddingVertical: 24,
+    paddingHorizontal: 16,
   },
   stepContainer: {
     gap: 8,
